@@ -1,0 +1,49 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    task_id:
+        label: Task ID
+        disabled: true
+    planned_start:
+        label: Planned start
+        type: datepicker
+        mode: datetime
+        span: auto
+    planned_end:
+        label: Planned end
+        type: datepicker
+        mode: datetime
+        span: auto
+    due_date:
+        label: Due date
+        type: datepicker
+        mode: datetime
+        span: auto
+    planned_time:
+        label: Planned time
+        type: datepicker
+        mode: time
+        span: auto
+    tracked_time:
+        label: Tracked time
+        type: datepicker
+        mode: time
+        span: auto
+    task:
+        label: Task
+        placeholder: Select task
+        span: auto
+        type: recordfinder
+        list: ~/plugins/teamgrid/task/models/task/columns.yaml
+        recordsPerPage: 10
+        title: Find task
+        prompt: Click the Find button to find a task
+        keyFrom: id
+        nameFrom: name
+        useRelation: true
+        modelClass: Teamgrid\Task\Models\Task

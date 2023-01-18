@@ -16,13 +16,11 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
 
-            $table->integer('customer_id')->nullable();
-
-            $table->date('planned_start')->nullable();
-            $table->date('planned_end')->nullable();
-            $table->date('due_date')->nullable();
-            $table->time('planned_time')->nullable();
-            $table->time('tracked_time')->nullable();
+            // $table->date('planned_start')->nullable();
+            // $table->date('planned_end')->nullable();
+            // $table->date('due_date')->nullable();
+            // $table->time('planned_time')->nullable();
+            // $table->time('tracked_time')->nullable();
 
             $table->boolean('done')->default(false);
 

@@ -11,23 +11,6 @@ fields:
     description:
         label: Description
         type: textarea
-    customer_id:
-        label: Customer
-    planned_start:
-        label: Planned Start Date
-        type: datepicker
-    planned_end:
-        label: Planned End Date
-        type: datepicker
-    due_date:
-        label: Due Date
-        type: datepicker
-    planned_time:
-        label: Planned Time
-        type: datepicker
-    tracked_time:
-        label: Tracked Time
-        type: datepicker
     project_id: 
         label: Project ID
         disabled: true

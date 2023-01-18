@@ -1,18 +1,18 @@
-<?php namespace Teamgrid\Task\Models;
+<?php namespace Teamgrid\Time\Models;
 
 use Model;
 
 /**
- * Task Model
+ * TimeEntry Model
  */
-class Task extends Model
+class TimeEntry extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'teamgrid_task_tasks';
+    public $table = 'teamgrid_time_time_entries';
 
     /**
      * @var array Guarded fields
@@ -60,11 +60,11 @@ class Task extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = ['time_entry' => 'Teamgrid\Time\Models\TimeEntry'];
+    public $hasOne = [];
     public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = ['project' => 'Teamgrid\Project\Models\Project'];
+    public $belongsTo = ['task' => 'Teamgrid\Task\Models\Task'];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
