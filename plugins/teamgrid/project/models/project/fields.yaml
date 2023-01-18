@@ -1,0 +1,21 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    title:
+        label: Title
+    customer_id:
+        label: Customer
+        type: number
+        # TODO: neskor pridaj recordfinder
+    project_manager_id:
+        label: Project Manager
+        type: number
+        # TODO: neskor pridaj recordfinder
+    due_date:
+        label: Due Date
+        type: datepicker
