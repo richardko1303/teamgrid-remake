@@ -23,12 +23,14 @@ class TaskController extends Controller {
 
         $timeEntry = new TimeEntry;
         $timeEntry->task_id = $task->id;
+        $timeEntry->tracked_start = null;
+        $timeEntry->tracked_end = null;
         $timeEntry->save();
         return TaskResource::make($task);
     }
 
     public function updateTask($id) {
-        $task = Task::find($id);
+        $task = Task::findOrFail($id);
         $task->project_id = post('project_id');
         $task->name = post('name');
         $task->description = post('description');
@@ -38,14 +40,14 @@ class TaskController extends Controller {
     }
 
     public function completeTask($id) {
-        $task = Task::find($id);
+        $task = Task::findOrFail($id);
         $task->done = true;
         $task->save();
         return TaskResource::make($task);
     }
 
     public function closeTask($id) {
-        $task = Task::find($id);
+        $task = Task::findOrFail($id);
         $task->delete();
         return response()->json(['message' => 'Task deleted successfully']);
     }

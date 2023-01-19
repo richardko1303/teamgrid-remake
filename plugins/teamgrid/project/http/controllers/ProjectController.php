@@ -6,7 +6,7 @@ use Teamgrid\Project\Http\Resources\ProjectResource;
 
 class ProjectController extends Controller {
     public function getProject($id) {
-        return ProjectResource::make(Project::find($id));
+        return ProjectResource::make(Project::findOrFail($id));
     }
 
     public function createProject() {
@@ -20,7 +20,7 @@ class ProjectController extends Controller {
     }
 
     public function updateProject($id){
-        $project = Project::find($id);
+        $project = Project::findOrFail($id);
         $project->title = post('title');
         $project->customer_id = post('customer_id');
         $project->project_manager_id = post('project_manager_id');
@@ -30,7 +30,7 @@ class ProjectController extends Controller {
     }
 
     public function closeProject($id){
-        $project = Project::find($id);
+        $project = Project::findOrFail($id);
         $project->delete();
         return response()->json(['message' => 'Project deleted successfully']);
     }
