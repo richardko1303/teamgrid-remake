@@ -1,4 +1,4 @@
-<?php namespace Teamgrid\Time\Controllers;
+<?php namespace Teamgrid\TimeEntry\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
@@ -30,6 +30,6 @@ class TimeEntries extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Teamgrid.Time', 'time', 'timeentries');
+        BackendMenu::setContext('Teamgrid.TimeEntry', 'timeentry', 'timeentries');
     }
 }

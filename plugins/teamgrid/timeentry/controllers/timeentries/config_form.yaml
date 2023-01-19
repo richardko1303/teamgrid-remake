@@ -6,25 +6,25 @@
 name: Time Entry
 
 # Model Form Field configuration
-form: $/teamgrid/time/models/timeentry/fields.yaml
+form: $/teamgrid/timeentry/models/timeentry/fields.yaml
 
 # Model Class name
-modelClass: Teamgrid\Time\Models\TimeEntry
+modelClass: Teamgrid\TimeEntry\Models\TimeEntry
 
 # Default redirect location
-defaultRedirect: teamgrid/time/timeentries
+defaultRedirect: teamgrid/timeentry/timeentries
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: teamgrid/time/timeentries/update/:id
-    redirectClose: teamgrid/time/timeentries
+    redirect: teamgrid/timeentry/timeentries/update/:id
+    redirectClose: teamgrid/timeentry/timeentries
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: teamgrid/time/timeentries
-    redirectClose: teamgrid/time/timeentries
+    redirect: teamgrid/timeentry/timeentries
+    redirectClose: teamgrid/timeentry/timeentries
 
 # Preview page
 preview:

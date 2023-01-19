@@ -60,8 +60,8 @@ class Task extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = ['time_entry' => 'Teamgrid\Time\Models\TimeEntry'];
-    public $hasMany = [];
+    public $hasOne = [];
+    public $hasMany = ['time_entries' => 'Teamgrid\TimeEntry\Models\TimeEntry'];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = ['project' => 'Teamgrid\Project\Models\Project'];

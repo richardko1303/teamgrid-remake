@@ -11,5 +11,9 @@ Route::group(['prefix' => 'api'], function () {
 
         Route::post('create/project', [ProjectController::class, 'createProject']);
 
+        Route::post('update/project/{id}', [ProjectController::class, 'updateProject']);
+
+        Route::delete('close/project/{id}', [ProjectController::class, 'closeProject']);
+
     });
 });

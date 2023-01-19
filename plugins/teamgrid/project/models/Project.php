@@ -61,7 +61,7 @@ class Project extends Model
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = ['task' => 'Teamgrid\Project\Models\Task'];
+    public $hasMany = ['tasks' => 'Teamgrid\Project\Models\Task'];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [];

@@ -1,10 +1,10 @@
-<?php namespace Teamgrid\Time;
+<?php namespace Teamgrid\TimeEntry;
 
 use Backend;
 use System\Classes\PluginBase;
 
 /**
- * time Plugin Information File
+ * timeEntry Plugin Information File
  */
 class Plugin extends PluginBase
 {
@@ -16,7 +16,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'time',
+            'name'        => 'timeEntry',
             'description' => 'No description provided yet...',
             'author'      => 'teamgrid',
             'icon'        => 'icon-leaf'
@@ -53,7 +53,7 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'Teamgrid\Time\Components\MyComponent' => 'myComponent',
+            'Teamgrid\TimeEntry\Components\MyComponent' => 'myComponent',
         ];
     }
 
@@ -67,8 +67,8 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'teamgrid.time.some_permission' => [
-                'tab' => 'time',
+            'teamgrid.timeentry.some_permission' => [
+                'tab' => 'timeEntry',
                 'label' => 'Some permission'
             ],
         ];
@@ -84,11 +84,11 @@ class Plugin extends PluginBase
         //return []; // Remove this line to activate
 
         return [
-            'time' => [
+            'timeentry' => [
                 'label'       => 'Time Entries',
-                'url'         => Backend::url('teamgrid/time/TimeEntries'),
+                'url'         => Backend::url('teamgrid/timeentry/TimeEntries'),
                 'icon'        => 'icon-clock-o',
-                'permissions' => ['teamgrid.time.*'],
+                'permissions' => ['teamgrid.timeentry.*'],
                 'order'       => 500,
             ],
         ];

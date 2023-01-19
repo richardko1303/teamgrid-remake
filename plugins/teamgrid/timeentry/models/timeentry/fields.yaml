@@ -9,30 +9,15 @@ fields:
     task_id:
         label: Task ID
         disabled: true
-    planned_start:
+    tracked_start:
         label: Planned start
         type: datepicker
         mode: datetime
         span: auto
-    planned_end:
+    tracked_end:
         label: Planned end
         type: datepicker
         mode: datetime
-        span: auto
-    due_date:
-        label: Due date
-        type: datepicker
-        mode: datetime
-        span: auto
-    planned_time:
-        label: Planned time
-        type: datepicker
-        mode: time
-        span: auto
-    tracked_time:
-        label: Tracked time
-        type: datepicker
-        mode: time
         span: auto
     task:
         label: Task

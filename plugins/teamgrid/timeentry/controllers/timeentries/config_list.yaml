@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/teamgrid/time/models/timeentry/columns.yaml
+list: $/teamgrid/timeentry/models/timeentry/columns.yaml
 
 # Model Class name
-modelClass: Teamgrid\Time\Models\TimeEntry
+modelClass: Teamgrid\TimeEntry\Models\TimeEntry
 
 # List Title
 title: Manage Time Entries
 
 # Link URL for each record
-recordUrl: teamgrid/time/timeentries/update/:id
+recordUrl: teamgrid/timeentry/timeentries/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

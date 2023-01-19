@@ -7,7 +7,16 @@ columns:
         label: ID
         searchable: true
     project_id: 
-        label: Project
+        label: Project ID
         searchable: true
+    title:
+        label: Project Title 
+        relation: project
+        select: title
     name:
         label: Name
+    due_date:
+        label: Due Date
+    done:
+        label: Done
+        type: switch

@@ -9,3 +9,7 @@ columns:
     task_id:
         label: Task ID
         searchable: true
+    task_name:
+        label: Task Name
+        relation: task
+        select: name

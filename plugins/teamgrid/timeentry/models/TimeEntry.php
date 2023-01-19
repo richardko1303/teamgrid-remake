@@ -1,4 +1,4 @@
-<?php namespace Teamgrid\Time\Models;
+<?php namespace Teamgrid\TimeEntry\Models;
 
 use Model;
 
@@ -12,7 +12,7 @@ class TimeEntry extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'teamgrid_time_time_entries';
+    public $table = 'teamgrid_timeentry_time_entries';
 
     /**
      * @var array Guarded fields

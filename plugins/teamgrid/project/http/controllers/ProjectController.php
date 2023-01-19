@@ -6,18 +6,32 @@ use Teamgrid\Project\Http\Resources\ProjectResource;
 
 class ProjectController extends Controller {
     public function getProject($id) {
-        return ProjectResource::collection(Project::find($id));
+        return ProjectResource::make(Project::find($id));
     }
 
     public function createProject() {
         $project = new Project;
-        $project->title = 'Test Project';
-        $project->customer_id = 1;
-        $project->project_manager_id = 1;
-        $project->due_date = '2021-01-01';
+        $project->title = post('title');
+        $project->customer_id = post('customer_id');
+        $project->project_manager_id = post('project_manager_id');
+        $project->due_date = post('due_date');
         $project->save();
         return ProjectResource::make($project);
     }
-}
 
-// TODO: Fixni "Call to undefined method Teamgrid\Project\Models\Project::mapInto()"
+    public function updateProject($id){
+        $project = Project::find($id);
+        $project->title = post('title');
+        $project->customer_id = post('customer_id');
+        $project->project_manager_id = post('project_manager_id');
+        $project->due_date = post('due_date');
+        $project->save();
+        return ProjectResource::make($project);
+    }
+
+    public function closeProject($id){
+        $project = Project::find($id);
+        $project->delete();
+        return response()->json(['message' => 'Project deleted successfully']);
+    }
+}

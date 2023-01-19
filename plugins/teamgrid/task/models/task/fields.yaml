@@ -11,6 +11,14 @@ fields:
     description:
         label: Description
         type: textarea
+    due_date:
+        label: Due Date
+        type: datepicker
+        mode: datetime
+        span: auto
+    done:
+        label: Done
+        type: switch
     project_id: 
         label: Project ID
         disabled: true
