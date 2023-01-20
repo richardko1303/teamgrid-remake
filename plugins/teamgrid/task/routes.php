@@ -4,8 +4,9 @@ use Teamgrid\Task\Models\Task;
 
 use Teamgrid\Task\Http\Controllers\TaskController;
 
-Route::group(['prefix' => 'api'], function () {
-    Route::group(['prefix' => 'v1'], function () {
+Route::group(['prefix' => 'api/v1'], function () {
+
+    Route::middleware(['auth'])->group(function () {
 
         Route::get('view/task/{id}', [TaskController::class, 'getTask']);
 
@@ -16,6 +17,6 @@ Route::group(['prefix' => 'api'], function () {
         Route::post('complete/task/{id}', [TaskController::class, 'completeTask']);
 
         Route::delete('close/task/{id}', [TaskController::class, 'closeTask']);
-
+        
     });
 });

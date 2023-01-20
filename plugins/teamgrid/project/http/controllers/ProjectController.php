@@ -3,6 +3,7 @@
 use Illuminate\Routing\Controller;
 use Teamgrid\Project\Models\Project;
 use Teamgrid\Project\Http\Resources\ProjectResource;
+use LibUser\Userapi\Models\User;
 
 class ProjectController extends Controller {
     public function getProject($id) {
@@ -13,24 +14,42 @@ class ProjectController extends Controller {
         $project = new Project;
         $project->title = post('title');
         $project->customer_id = post('customer_id');
-        $project->project_manager_id = post('project_manager_id');
+        $project->project_manager_id = auth()->user()->id;
         $project->due_date = post('due_date');
         $project->save();
         return ProjectResource::make($project);
     }
 
     public function updateProject($id){
-        $project = Project::findOrFail($id);
+        $project = Project::where('id', $id)
+            ->where('project_manager_id', auth()->user()->id)
+            ->where('done', false)
+            ->firstOrFail();
+
         $project->title = post('title');
         $project->customer_id = post('customer_id');
-        $project->project_manager_id = post('project_manager_id');
         $project->due_date = post('due_date');
         $project->save();
         return ProjectResource::make($project);
     }
 
+    public function completeProject($id) {
+        $project = Project::where('id', $id)
+        ->where('project_manager_id', auth()->user()->id)
+        ->where('done', false)
+        ->firstOrFail();
+
+        $project->done = true;
+        $project->save();
+        return ProjectResource::make($project);
+    }
+
     public function closeProject($id){
-        $project = Project::findOrFail($id);
+        $project = Project::where('id', $id)
+            ->where('project_manager_id', auth()->user()->id)
+            ->where('done', false)
+            ->firstOrFail();
+        
         $project->delete();
         return response()->json(['message' => 'Project deleted successfully']);
     }

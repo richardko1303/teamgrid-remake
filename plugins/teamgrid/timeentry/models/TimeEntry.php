@@ -64,7 +64,10 @@ class TimeEntry extends Model
     public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = ['task' => 'Teamgrid\Task\Models\Task'];
+    public $belongsTo = [
+        'task' => 'Teamgrid\Task\Models\Task',
+        'user' => 'RainLab\User\Models\User'
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

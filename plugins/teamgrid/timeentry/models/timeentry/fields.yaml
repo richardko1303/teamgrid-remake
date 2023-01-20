@@ -10,12 +10,12 @@ fields:
         label: Task ID
         disabled: true
     tracked_start:
-        label: Planned start
+        label: Tracked start
         type: datepicker
         mode: datetime
         span: auto
     tracked_end:
-        label: Planned end
+        label: Tracked end
         type: datepicker
         mode: datetime
         span: auto

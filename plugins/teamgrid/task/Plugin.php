@@ -2,6 +2,7 @@
 
 use Backend;
 use System\Classes\PluginBase;
+use RainLab\User\Models\User;
 
 /**
  * task Plugin Information File
@@ -40,7 +41,9 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-
+        User::extend( function($model) {
+            $model->hasMany['tasks'] = ['Teamgrid\Task\Models\Task'];
+        });
     }
 
     /**

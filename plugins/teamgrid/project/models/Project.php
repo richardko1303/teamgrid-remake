@@ -64,7 +64,7 @@ class Project extends Model
     public $hasMany = ['tasks' => 'Teamgrid\Project\Models\Task'];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = [];
+    public $belongsTo = ['user' => 'RainLab\User\Models\User'];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

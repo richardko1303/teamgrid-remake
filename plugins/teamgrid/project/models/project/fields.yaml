@@ -19,3 +19,6 @@ fields:
     due_date:
         label: Due Date
         type: datepicker
+    done:
+        label: Done
+        type: switch

@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->integer('project_manager_id');
 
             $table->timestamp('due_date')->nullable();
+            $table->boolean('done')->default(false);
             
             $table->timestamps();
         });

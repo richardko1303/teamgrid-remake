@@ -3,18 +3,27 @@
 use Illuminate\Routing\Controller;
 use Teamgrid\Task\Models\Task;
 use Teamgrid\Task\Http\Resources\TaskResource;
+use Teamgrid\Project\Models\Project;
 
 use Teamgrid\TimeEntry\Models\TimeEntry;
 
 class TaskController extends Controller {
     public function getTask($id) {
-        $task = Task::find($id);
+        $task = Task::where('id', $id)
+            ->where('task_manager_id', auth()->user()->id)
+            ->firstOrFail();
         return TaskResource::make($task);
     }
 
     public function createTask() {
+
+        Project::where('id', post('project_id'))
+            ->where('project_manager_id', auth()->user()->id)
+            ->firstOrFail();
+
         $task = new Task;
         $task->project_id = post('project_id');
+        $task->task_manager_id = auth()->user()->id;
         $task->name = post('name');
         $task->description = post('description');
         $task->due_date = post('due_date');
@@ -30,7 +39,11 @@ class TaskController extends Controller {
     }
 
     public function updateTask($id) {
-        $task = Task::findOrFail($id);
+        $task = Task::where('id', $id)
+            ->where('task_manager_id', auth()->user()->id)
+            ->where('done', false)
+            ->firstOrFail();
+        
         $task->project_id = post('project_id');
         $task->name = post('name');
         $task->description = post('description');
@@ -40,14 +53,22 @@ class TaskController extends Controller {
     }
 
     public function completeTask($id) {
-        $task = Task::findOrFail($id);
+        $task = Task::where('id', $id)
+            ->where('task_manager_id', auth()->user()->id)
+            ->where('done', false)
+            ->firstOrFail();
+
         $task->done = true;
         $task->save();
         return TaskResource::make($task);
     }
 
     public function closeTask($id) {
-        $task = Task::findOrFail($id);
+        $task = Task::where('id', $id)
+            ->where('task_manager_id', auth()->user()->id)
+            ->where('done', false)
+            ->firstOrFail();
+
         $task->delete();
         return response()->json(['message' => 'Task deleted successfully']);
     }

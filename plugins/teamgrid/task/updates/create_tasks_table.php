@@ -13,6 +13,7 @@ class CreateTasksTable extends Migration
 
             $table->increments('id');
             $table->integer('project_id')->nullable();
+            $table->integer('task_manager_id')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
 
