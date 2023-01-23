@@ -11,7 +11,7 @@ use Teamgrid\TimeEntry\Models\TimeEntry;
 class TaskController extends Controller {
     public function getTask($id) {
         $task = Task::where('id', $id)
-            ->where('task_manager_id', auth()->user()->id)
+            ->where('user_id', auth()->user()->id)
             ->firstOrFail();
         return TaskResource::make($task);
     }
@@ -19,7 +19,7 @@ class TaskController extends Controller {
     public function createTask() {
 
         Project::where('id', post('project_id'))
-            ->where('project_manager_id', auth()->user()->id)
+            ->where('user_id', auth()->user()->id)
             ->firstOrFail();
 
         $task = new Task;
@@ -36,7 +36,7 @@ class TaskController extends Controller {
 
     public function updateTask($id) {
         $task = Task::where('id', $id)
-            ->where('project_manager_id', auth()->user()->id)
+            ->where('user_id', auth()->user()->id)
             ->where('done', false)
             ->firstOrFail();
         
@@ -50,7 +50,7 @@ class TaskController extends Controller {
 
     public function completeTask($id) {
         $task = Task::where('id', $id)
-            ->where('task_manager_id', auth()->user()->id)
+            ->where('user_id', auth()->user()->id)
             ->where('done', false)
             ->firstOrFail();
 
@@ -61,7 +61,7 @@ class TaskController extends Controller {
 
     public function closeTask($id) {
         $task = Task::where('id', $id)
-            ->where('task_manager_id', auth()->user()->id)
+            ->where('user_id', auth()->user()->id)
             ->where('done', false)
             ->firstOrFail();
 
