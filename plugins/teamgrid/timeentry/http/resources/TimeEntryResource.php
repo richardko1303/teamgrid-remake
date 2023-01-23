@@ -9,6 +9,7 @@ class TimeEntryResource extends JsonResource {
             'task_id' => $this->task_id,
             'tracked_start' => $this->tracked_start,
             'tracked_end' => $this->tracked_end,
+            'total_time' => $this->total_time,
         ];
     }
 }

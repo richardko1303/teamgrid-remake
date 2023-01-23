@@ -4,6 +4,7 @@ use Illuminate\Routing\Controller;
 use Teamgrid\Task\Models\Task;
 use Teamgrid\Task\Http\Resources\TaskResource;
 use Teamgrid\Project\Models\Project;
+use Carbon\Carbon;
 
 use Teamgrid\TimeEntry\Models\TimeEntry;
 
@@ -23,31 +24,26 @@ class TaskController extends Controller {
 
         $task = new Task;
         $task->project_id = post('project_id');
-        $task->task_manager_id = auth()->user()->id;
+        $task->user_id = auth()->user()->id;
         $task->name = post('name');
         $task->description = post('description');
-        $task->due_date = post('due_date');
+        $task->due_date = Carbon::create(post('due_date'));
         $task->done = false;
         $task->save();
 
-        $timeEntry = new TimeEntry;
-        $timeEntry->task_id = $task->id;
-        $timeEntry->tracked_start = null;
-        $timeEntry->tracked_end = null;
-        $timeEntry->save();
         return TaskResource::make($task);
     }
 
     public function updateTask($id) {
         $task = Task::where('id', $id)
-            ->where('task_manager_id', auth()->user()->id)
+            ->where('project_manager_id', auth()->user()->id)
             ->where('done', false)
             ->firstOrFail();
         
         $task->project_id = post('project_id');
         $task->name = post('name');
         $task->description = post('description');
-        $task->due_date = post('due_date');
+        $task->due_date = Carbon::create(post('due_date'));
         $task->save();
         return TaskResource::make($task);
     }

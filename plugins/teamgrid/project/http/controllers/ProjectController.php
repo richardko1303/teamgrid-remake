@@ -4,6 +4,7 @@ use Illuminate\Routing\Controller;
 use Teamgrid\Project\Models\Project;
 use Teamgrid\Project\Http\Resources\ProjectResource;
 use LibUser\Userapi\Models\User;
+use Carbon\Carbon;
 
 class ProjectController extends Controller {
     public function getProject($id) {
@@ -15,7 +16,7 @@ class ProjectController extends Controller {
         $project->title = post('title');
         $project->customer_id = post('customer_id');
         $project->project_manager_id = auth()->user()->id;
-        $project->due_date = post('due_date');
+        $project->due_date = Carbon::create(post('due_date'));
         $project->save();
         return ProjectResource::make($project);
     }
@@ -28,7 +29,7 @@ class ProjectController extends Controller {
 
         $project->title = post('title');
         $project->customer_id = post('customer_id');
-        $project->due_date = post('due_date');
+        $project->due_date = Carbon::create(post('due_date'));
         $project->save();
         return ProjectResource::make($project);
     }

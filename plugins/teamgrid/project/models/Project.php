@@ -60,15 +60,9 @@ class Project extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
     public $hasMany = ['tasks' => 'Teamgrid\Project\Models\Task'];
-    public $hasOneThrough = [];
-    public $hasManyThrough = [];
-    public $belongsTo = ['user' => 'RainLab\User\Models\User'];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $belongsTo = [
+        'project_manager' => 'RainLab\User\Models\User',
+        'customer' => 'RainLab\User\Models\User'
+    ];
 }

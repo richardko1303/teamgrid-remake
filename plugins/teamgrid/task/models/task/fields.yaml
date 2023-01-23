@@ -22,6 +22,13 @@ fields:
     project_id: 
         label: Project ID
         disabled: true
+        span: auto
+    user_id:
+        label: Manager ID
+        disabled: true
+        relation: user 
+        select: id
+        span: auto
     project:
         label: Project
         placeholder: Select project
@@ -35,4 +42,3 @@ fields:
         nameFrom: title
         useRelation: true
         modelClass: Teamgrid\Project\Models\Project
-    

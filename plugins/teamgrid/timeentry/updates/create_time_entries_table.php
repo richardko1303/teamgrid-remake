@@ -13,8 +13,9 @@ class CreateTimeEntriesTable extends Migration
             $table->increments('id');
             $table->integer('task_id')->nullable();
 
-            $table->date('tracked_start')->nullable();
-            $table->date('tracked_end')->nullable();
+            $table->dateTime('tracked_start')->nullable();
+            $table->dateTime('tracked_end')->nullable();
+            $table->time('total_time')->nullable();
             // $table->time('planned_time')->nullable();
             // $table->time('tracked_time')->nullable();
 
