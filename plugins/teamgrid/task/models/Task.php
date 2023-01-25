@@ -1,6 +1,8 @@
 <?php namespace Teamgrid\Task\Models;
 
 use Model;
+use Log;
+use Carbon\Carbon;
 
 /**
  * Task Model
@@ -65,4 +67,12 @@ class Task extends Model
         'project' => 'Teamgrid\Project\Models\Project',
         'user' => 'RainLab\User\Models\User'
     ];
+
+    //Methody
+
+    public function getTrackedTimeAttribute()
+    {
+        $time = date("H:i:s", $this->time_entries()->sum('total_time'));
+        return $time;
+    }
 }

@@ -34,13 +34,13 @@ class TimeEntryController extends Controller {
             ->where('done', false)
             ->firstOrFail();
 
-        $start = Carbon::create($timeEntry->tracked_start);
-        $finish = Carbon::create(now());
-        $total_time = $start->diffInHours($start) . ':' . $start->diff($finish)->format('%I:%S');
+        // $start = Carbon::create($timeEntry->tracked_start);
+        // $finish = Carbon::create(now());
+        // $total_time = $start->diffInHours($start) . ':' . $start->diff($finish)->format('%I:%S');
 
         
         $timeEntry->tracked_end = Carbon::create(now());
-        $timeEntry->total_time = $total_time;
+        // $timeEntry->total_time = $total_time;
         $timeEntry->save();
         return TimeEntryResource::make($timeEntry);
 

@@ -11,6 +11,7 @@ class ProjectResource extends JsonResource {
             'project_manager_id' => $this->project_manager_id,
             'due_date' => $this->due_date,
             'done' => $this->done,
+            'accounter' => $this->accounter,
         ];
     }
 }

@@ -19,6 +19,10 @@ fields:
         type: datepicker
         mode: datetime
         span: auto
+    total_time: 
+        label: Total time
+        disabled: true
+        span: auto
     task:
         label: Task
         placeholder: Select task

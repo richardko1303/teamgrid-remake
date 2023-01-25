@@ -19,7 +19,7 @@ class TaskController extends Controller {
     public function createTask() {
 
         Project::where('id', post('project_id'))
-            ->where('user_id', auth()->user()->id)
+            ->where('project_manager_id', auth()->user()->id)
             ->firstOrFail();
 
         $task = new Task;

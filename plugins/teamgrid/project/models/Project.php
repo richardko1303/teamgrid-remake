@@ -22,7 +22,9 @@ class Project extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        //TODO: PROZRI
+    ];
 
     /**
      * @var array Validation rules for attributes
@@ -64,5 +66,13 @@ class Project extends Model
     public $belongsTo = [
         'project_manager' => 'RainLab\User\Models\User',
         'customer' => 'RainLab\User\Models\User'
+    ];
+    public $belongsToMany = [
+        'accounter' => [
+            'RainLab\User\Models\User',
+            'table' => 'teamgrid_project_accountants',
+            'key' => 'project_id',
+            'otherKey' => 'accounter_id'
+        ]
     ];
 }

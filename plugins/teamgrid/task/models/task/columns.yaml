@@ -20,3 +20,7 @@ columns:
     done:
         label: Done
         type: switch
+    tracked_time:
+        label: Tracked Time
+        type: text
+        searchable: true

@@ -1,6 +1,7 @@
 <?php namespace Teamgrid\TimeEntry\Models;
 
 use Model;
+use Carbon\Carbon;
 
 /**
  * TimeEntry Model
@@ -64,4 +65,16 @@ class TimeEntry extends Model
         'task' => 'Teamgrid\Task\Models\Task',
         'user' => 'RainLab\User\Models\User'
     ];
+
+    //Metody
+    public function beforeSave()
+    {
+        if ($this->tracked_end != null) {
+            $start = Carbon::create($this->tracked_start);
+            $finish = Carbon::create(now());
+            $total_time = $start->diffInHours($start) . ':' . $start->diff($finish)->format('%I:%S');
+    
+            $this->total_time = $total_time;
+        }
+    }
 }

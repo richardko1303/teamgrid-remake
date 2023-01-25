@@ -17,6 +17,8 @@ class ProjectController extends Controller {
         $project->customer_id = post('customer_id');
         $project->project_manager_id = auth()->user()->id;
         $project->due_date = Carbon::create(post('due_date'));
+        $project->accounter = post('accounting_person_id');
+        //$project->fill(post()); TODO: POZRI
         $project->save();
         return ProjectResource::make($project);
     }
@@ -30,6 +32,7 @@ class ProjectController extends Controller {
         $project->title = post('title');
         $project->customer_id = post('customer_id');
         $project->due_date = Carbon::create(post('due_date'));
+        $project->accounter = post('accounting_person_id');
         $project->save();
         return ProjectResource::make($project);
     }
