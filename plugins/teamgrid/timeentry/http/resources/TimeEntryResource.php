@@ -1,6 +1,7 @@
 <?php namespace Teamgrid\TimeEntry\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use LibUser\Userapi\Http\Resources\UserResource;
 
 class TimeEntryResource extends JsonResource {
     public function toArray($request) {
@@ -10,6 +11,7 @@ class TimeEntryResource extends JsonResource {
             'tracked_start' => $this->tracked_start,
             'tracked_end' => $this->tracked_end,
             'total_time' => $this->total_time,
+            'user' => new UserResource($this->user)
         ];
     }
 }

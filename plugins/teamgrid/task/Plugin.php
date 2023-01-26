@@ -3,6 +3,7 @@
 use Backend;
 use System\Classes\PluginBase;
 use RainLab\User\Models\User;
+use Teamgrid\Task\Classes\Extend\UserExtend;
 
 /**
  * task Plugin Information File
@@ -41,40 +42,7 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        User::extend( function($model) {
-            $model->hasMany['tasks'] = ['Teamgrid\Task\Models\Task'];
-        });
-    }
-
-    /**
-     * Registers any front-end components implemented in this plugin.
-     *
-     * @return array
-     */
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'Teamgrid\Task\Components\MyComponent' => 'myComponent',
-        ];
-    }
-
-    /**
-     * Registers any back-end permissions used by this plugin.
-     *
-     * @return array
-     */
-    public function registerPermissions()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'teamgrid.task.some_permission' => [
-                'tab' => 'task',
-                'label' => 'Some permission'
-            ],
-        ];
+        UserExtend::UserExtend();
     }
 
     /**
