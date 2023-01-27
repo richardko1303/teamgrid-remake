@@ -6,9 +6,6 @@ fields:
     id:
         label: ID
         disabled: true
-    task_id:
-        label: Task ID
-        disabled: true
     tracked_start:
         label: Tracked start
         type: datepicker

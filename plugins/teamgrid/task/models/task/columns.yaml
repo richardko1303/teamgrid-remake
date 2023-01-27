@@ -6,9 +6,8 @@ columns:
     id:
         label: ID
         searchable: true
-    project_id: 
-        label: Project ID
-        searchable: true
+    project[title]:
+        label: Title
     title:
         label: Project Title 
         relation: project

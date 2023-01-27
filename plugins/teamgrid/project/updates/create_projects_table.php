@@ -22,19 +22,10 @@ class CreateProjectsTable extends Migration
             
             $table->timestamps();
         });
-
-        Schema::create('teamgrid_project_accountants', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-
-            $table->integer('project_id');
-            $table->integer('accounter_id');
-        });
     }
 
     public function down()
     {
         Schema::dropIfExists('teamgrid_project_projects');
-        Schema::dropIfExists('teamgrid_project_accountants');
     }
 }

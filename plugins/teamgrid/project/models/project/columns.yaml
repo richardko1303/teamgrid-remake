@@ -16,6 +16,12 @@ columns:
         label: Customer
         relation: customer
         select: name
+    done:
+        label: Done
+        type: switch
+    due_date:
+        label: Due Date
+        type: date
     # customer_id:
     #     label: Customer
     # project_manager_id:

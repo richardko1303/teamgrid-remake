@@ -19,16 +19,19 @@ fields:
     done:
         label: Done
         type: switch
-    project_id: 
-        label: Project ID
-        disabled: true
+    user: 
+        label: Manager
+        placeholder: Select project
         span: auto
-    user_id:
-        label: Manager ID
-        disabled: true
-        relation: user 
-        select: id
-        span: auto
+        type: recordfinder
+        list: ~/plugins/rainlab/user/models/user/columns.yaml
+        recordsPerPage: 10
+        title: Find User
+        prompt: Click the Find button to find a user
+        keyFrom: id
+        nameFrom: name
+        useRelation: true
+        modelClass: Rainlab\User\Models\User
     project:
         label: Project
         placeholder: Select project

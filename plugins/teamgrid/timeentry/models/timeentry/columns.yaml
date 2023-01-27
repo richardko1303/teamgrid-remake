@@ -6,10 +6,13 @@ columns:
     id:
         label: ID
         searchable: true
-    task_id:
-        label: Task ID
-        searchable: true
     task_name:
         label: Task Name
         relation: task
         select: name
+    tracked_start:
+        label: Tracked Start
+    tracked_end:
+        label: Tracked End 
+    total_time:
+        label: Total Tracked Time

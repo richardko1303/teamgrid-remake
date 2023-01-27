@@ -1,3 +1,4 @@
 1.0.1: 
   - Create Projects table + pivot table
   - create_projects_table.php
+  - create_accountants_table.php
